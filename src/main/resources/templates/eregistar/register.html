@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+</head>
+<body>
+<div style="text-align: center; margin-top: 50px;">
+    <h1>Student Registration</h1>
+    <div style="display: flex; justify-content: center; margin-top: 30px;">
+        <form th:action="@{/eregistar/save}" method="post" th:object="${students}" style="width: 300px;">
+
+            <div style="margin-bottom: 10px;">
+                <label for="studentNumber">Student No:</label>
+                <input type="number" id="studentNumber" name="studentNumber" required th:field="*{studentNumber}" />
+            </div>
+
+
+            <div style="margin-bottom: 10px;">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required th:field="*{firstName}" />
+            </div>
+
+
+            <div style="margin-bottom: 10px;">
+                <label for="middleName">Middle Name:</label>
+                <input type="text" id="middleName" name="middleName" th:field="*{middleName}" />
+            </div>
+
+
+            <div style="margin-bottom: 10px;">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required th:field="*{lastName}" />
+            </div>
+
+
+            <div style="margin-bottom: 10px;">
+                <label for="cgpa">CGPA:</label>
+                <input type="number" id="cgpa" name="cgpa" required th:field="*{cgpa}" />
+            </div>
+
+
+            <div style="margin-bottom: 10px;">
+                <label for="dateOFEnrollment">Date of Enrollment:</label>
+                <input type="date" id="dateOFEnrollment" name="dateOFEnrollment" required th:field="*{dateOFEnrollment}" />
+            </div>
+
+
+            <div style="margin-bottom: 10px;">
+                <label for="isInternational">Is international student?</label>
+                <select id="isInternational" name="isInternational" required th:field="*{isInternational}">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div>
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

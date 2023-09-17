@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Students</title>
+</head>
+<body>
+<div style="text-align: center; margin-top: 10px;">
+    <h1>List of Students</h1>
+    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 20px;">
+
+        <div style="width: 300px;">
+            <h5>Search Students</h5>
+            <form th:action="@{/eregistar/search}" method="get">
+                <div style="display: flex;">
+                    <input type="text" style="flex: 1; padding: 5px;" placeholder="Search Student" name="query">
+                    <button style="padding: 5px; background-color: #007bff; border: none; color: white;" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+
+
+        <table style="margin-top: 20px; border-collapse: collapse; width: 80%;">
+            <thead>
+            <tr>
+                <th style="border: 1px solid #ddd; padding: 10px;">Student No.</th>
+                <th style="border: 1px solid #ddd; padding: 10px;">First Name</th>
+                <th style="border: 1px solid #ddd; padding: 10px;">Middle Name</th>
+                <th style="border: 1px solid #ddd; padding: 10px;">Last Name</th>
+                <th style="border: 1px solid #ddd; padding: 10px;">CGPA</th>
+                <th style="border: 1px solid #ddd; padding: 10px;">Date of Enrollment</th>
+                <th style="border: 1px solid #ddd; padding: 10px;">Is International</th>
+                <th style="border: 1px solid #ddd; padding: 10px;">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="student: ${students}">
+                <td style="border: 1px solid #ddd; padding: 10px;" th:text="${student.studentNumber}"></td>
+                <td style="border: 1px solid #ddd; padding: 10px;" th:text="${student.firstName}"></td>
+                <td style="border: 1px solid #ddd; padding: 10px;" th:text="${student.middleName}"></td>
+                <td style="border: 1px solid #ddd; padding: 10px;" th:text="${student.lastName}"></td>
+                <td style="border: 1px solid #ddd; padding: 10px;" th:text="${student.cgpa}"></td>
+                <td style="border: 1px solid #ddd; padding: 10px;" th:text="${student.dateOFEnrollment}"></td>
+                <td style="border: 1px solid #ddd; padding: 10px;" th:text="${student.isInternational}"></td>
+                <td style="border: 1px solid #ddd; padding: 10px;">
+                    <a th:href="@{/eregistar/edit/{id}(id=${student.studentId})}" style="background-color: #007bff; color: white; padding: 5px; text-decoration: none;">Edit</a>
+                    <a th:href="@{/eregistar/delete/{id}(id=${student.studentId})}" style="background-color: #dc3545; color: white; padding: 5px; text-decoration: none; margin-left: 5px;">Delete</a>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

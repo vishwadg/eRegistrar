@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+</head>
+<body>
+<div style="text-align: center; margin-top: 50px;">
+    <h1>Welcome to the eRegistar</h1>
+    <div style="display: flex; justify-content: center; margin-top: 30px;">
+
+        <div style="margin: 10px;">
+            <h5>Add New Student</h5>
+            <p>Click the button below to add a new student to the system.</p>
+            <a th:href="@{/eregistar/register}">Add Student</a>
+        </div>
+
+
+        <div style="margin: 10px;">
+            <h5>List All Students</h5>
+            <p>View a list of all available students in the system.</p>
+            <a th:href="@{/eregistar/findAll}">List Students</a>
+        </div>
+
+
+        <div style="margin: 10px;">
+            <h5>Search All Students</h5>
+            <p>Search from a list of all available students in the system.</p>
+            <a th:href="@{/eregistar/findAll}">Search Students</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
